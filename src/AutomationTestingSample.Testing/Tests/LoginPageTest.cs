@@ -19,8 +19,11 @@ namespace AutomationTestingSample.Testing.Tests
             ExtentReporting.Instance.LogInfo("this is a test TestLogin");
 
             var a = false;
+            var b = new List<int>() { 1, 2, 3, 5 };
+            var bc = new List<int>() { 1, 2, 3, 5 };
 
             Assert.IsTrue(a);
+            Assert.That(b, Is.SubsetOf(bc));
         }
 
         [TestCase("hooa", "hola")]
@@ -28,13 +31,12 @@ namespace AutomationTestingSample.Testing.Tests
         {
             var loginPage = new LoginPage(Driver);
 
-            //loginPage.Login("", "");
+            var b = new List<int>() { 1, 2 };
+            var bc = new List<int>() { 1, 2, 3, 5 };
 
-            ExtentReporting.Instance.LogInfo("this is a test LoginWithSSO");
-
-            var a = true;
-
-            Assert.IsTrue(a);
+            Assert.That(b, Is.SubsetOf(bc));
+            Is.AnyOf(bc);
+            Assert.That(5, Is.AnyOf(1,5,4));
         }
     }
 }

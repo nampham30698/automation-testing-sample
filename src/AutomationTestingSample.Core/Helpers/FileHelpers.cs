@@ -11,22 +11,18 @@ namespace AutomationTestingSample.Core.Helpers
         public static string Baselines_Screenshots { get; private set; } 
         public static string Uploads { get; private set; }
 
-        public FileHelpers()
+        public static void Initialize(string browserType, int browserWidth, int browserHeight)
         {
             Actuals_Downloads = ProjectPath + @"Resources\Actuals\Downloads\";
-            Actuals_Screenshots = ProjectPath + @"Resources\Actuals\Screenshots\";
-            Baselines_Screenshots = ProjectPath + @"Resources\Baselines\Screenshots\";
+            Actuals_Screenshots = ProjectPath + $@"Resources\Actuals\Screenshots\{browserType.ToLower()}\{browserWidth}x{browserHeight}\";
+
+            Baselines_Screenshots = ProjectPath + $@"Resources\Baselines\Screenshots\{browserType.ToLower()}\{browserWidth}x{browserHeight}\";
             Uploads = ProjectPath + @"Resources\Uploads";
-            
+
             CreateDirectoryIfNotExist(Actuals_Downloads);
             CreateDirectoryIfNotExist(Actuals_Screenshots);
             CreateDirectoryIfNotExist(Baselines_Screenshots);
             CreateDirectoryIfNotExist(Uploads);
-        }
-
-        public static void Initialize()
-        {
-            _ = new FileHelpers();
         }
 
         private static void CreateDirectoryIfNotExist(string path)

@@ -88,5 +88,10 @@ namespace AutomationTestingSample.Testing.Pages
             }
         }
 
+        protected virtual void Sleep(TimeSpan timeout)
+        {
+            Thread.Sleep(timeout);
+        }
+
     }
 }

@@ -13,6 +13,9 @@ namespace AutomationTestingSample.Core
         const int _fullhdWith = 1920;
         const int _fullhdHeight = 1080;
 
+        const string _hd = "hd";
+        const string _fullhd = "fullhd";
+
         public static IEnumerable Browsers
         {
             get
@@ -25,13 +28,12 @@ namespace AutomationTestingSample.Core
 
                 foreach (var browser in browsers)
                 {
-
-                    if (resolutions.Contains("hd"))
+                    if (resolutions.Contains(_hd))
                     {
                         yield return new TestFixtureData(browser, _hdWith, _hdHeight);
                     }
 
-                    if (resolutions.Contains("fullhd"))
+                    if (resolutions.Contains(_fullhd))
                     {
                         yield return new TestFixtureData(browser, _fullhdWith, _fullhdHeight);
                     }

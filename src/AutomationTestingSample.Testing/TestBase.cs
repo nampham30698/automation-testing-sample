@@ -29,7 +29,7 @@ namespace AutomationTestingSample.Testing
         [OneTimeSetUp]
         public virtual void OneTimeSetup()
         {
-            FileHelpers.Initialize();
+            FileHelpers.Initialize(BrowserType, BrowserWidth, BrowserHeight);
 
             ConfigurationManager.Configure();
         }
