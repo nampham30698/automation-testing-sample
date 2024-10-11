@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
@@ -15,10 +15,24 @@
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="129.0.6668.5800" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.35.0" />
+    <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="128.0.2739.79" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AutomationTestingSample.Core\AutomationTestingSample.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Actuals\Screenshots\" />
+    <Folder Include="Resources\Actuals\Downloads\" />
+    <Folder Include="Resources\Baselines\Screenshots\" />
+    <Folder Include="Resources\Uploads\" />
   </ItemGroup>
 
 </Project>
