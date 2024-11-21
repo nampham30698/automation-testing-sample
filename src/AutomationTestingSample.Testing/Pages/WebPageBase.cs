@@ -3,6 +3,7 @@ using AutomationTestingSample.Core.Reports;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.Collections.ObjectModel;
 
 namespace AutomationTestingSample.Testing.Pages
 {
@@ -21,6 +22,12 @@ namespace AutomationTestingSample.Testing.Pages
             Browser = new Browser(driver);
         }
 
+        
+        protected virtual void NavigateToUrl(string url)
+        {
+            Driver.Navigate().GoToUrl(url);
+        }
+        
         protected virtual IWebElement HighlightElement(IWebElement element) {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
             jse.ExecuteScript("arguments[0].style.border='2px solid red'", element);
@@ -46,6 +53,21 @@ namespace AutomationTestingSample.Testing.Pages
             }
             catch (Exception ex) {
                 ExtentReporting.Instance.LogFail(ex.ToString(),Browser.SaveScreenshot());
+                throw;
+            }
+        }
+
+        protected virtual ReadOnlyCollection<IWebElement> FindElements(By by, TimeSpan? timeout = null, bool highLight = true)
+        {
+            try
+            {
+                var elements = Driver.FindElements(by);
+
+                return elements;
+            }
+            catch (Exception ex)
+            {
+                ExtentReporting.Instance.LogFail(ex.ToString(), Browser.SaveScreenshot());
                 throw;
             }
         }

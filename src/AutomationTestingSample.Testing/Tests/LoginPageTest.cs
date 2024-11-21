@@ -1,5 +1,7 @@
 ﻿using AutomationTestingSample.Core.Reports;
+using AutomationTestingSample.Testing.Pages;
 using AutomationTestingSample.Testing.Pages.Login;
+using System.Net.Http.Headers;
 
 namespace AutomationTestingSample.Testing.Tests
 {
@@ -35,6 +37,13 @@ namespace AutomationTestingSample.Testing.Tests
             var a = true;
 
             Assert.IsTrue(a);
+        }
+
+        [TestCase]
+        public void GetProductUrls()
+        {
+            var product = new ProductCalatlog(Driver);
+            product.GetProductUrls();
         }
     }
 }
