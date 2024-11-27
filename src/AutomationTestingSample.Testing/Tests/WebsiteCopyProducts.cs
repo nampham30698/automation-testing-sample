@@ -2,9 +2,9 @@
 
 namespace AutomationTestingSample.Testing.Tests
 {
-    public class CopyProductsInPages : TestBase
+    public class WebsiteCopyProducts : TestBase
     {
-        public CopyProductsInPages(string browserType, int browserWidth, int browserHeight) : base(browserType, browserWidth, browserHeight)
+        public WebsiteCopyProducts(string browserType, int browserWidth, int browserHeight) : base(browserType, browserWidth, browserHeight)
         {
         }
 
