@@ -110,5 +110,12 @@ namespace AutomationTestingSample.Testing.Pages
             }
         }
 
+        protected virtual SelectElement FindSelectElement(By by, TimeSpan? timeout = null, bool highLight = true)
+        {
+            var element = FindElement(by, timeout, highLight);
+
+            return new SelectElement(element);
+        } 
+
     }
 }

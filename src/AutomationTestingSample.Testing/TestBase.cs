@@ -79,6 +79,7 @@ namespace AutomationTestingSample.Testing
         {
             var testStatus = TestContext.CurrentContext.Result.Outcome.Status;
             var message = TestContext.CurrentContext.Result.Message;
+            var stackTrace = TestContext.CurrentContext.Result.StackTrace;
 
             switch (testStatus)
             {
@@ -87,6 +88,7 @@ namespace AutomationTestingSample.Testing
                     break;
                 case TestStatus.Skipped:
                     ExtentReporting.Instance.LogInfo($"Test skipped {message}");
+                    ExtentReporting.Instance.LogInfo($"StackTrace: {stackTrace}");
                     break;
                 default:
                     break;

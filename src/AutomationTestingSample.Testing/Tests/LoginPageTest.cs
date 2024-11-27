@@ -11,34 +11,6 @@ namespace AutomationTestingSample.Testing.Tests
         {
         }
 
-        [Test]
-        public void TestLogin()
-        {
-            var loginPage = new LoginPage(Driver);
-
-            loginPage.Login("", "");
-
-            ExtentReporting.Instance.LogInfo("this is a test TestLogin");
-
-            var a = false;
-
-            Assert.IsTrue(a);
-        }
-
-        [TestCase("hooa", "hola")]
-        public void LoginWithSSO(string h, string hfd)
-        {
-            var loginPage = new LoginPage(Driver);
-
-            //loginPage.Login("", "");
-
-            ExtentReporting.Instance.LogInfo("this is a test LoginWithSSO");
-
-            var a = true;
-
-            Assert.IsTrue(a);
-        }
-
         [TestCase]
         public void GetProductUrls()
         {

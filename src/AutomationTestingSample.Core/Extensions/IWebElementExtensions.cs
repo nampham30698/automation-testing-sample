@@ -11,29 +11,29 @@ namespace AutomationTestingSample.Core.Extensions
             element.SendKeys(value);
         }
 
-        public static void SelectDropdownByText(this IWebElement element, string text)
-        {
-            var selectElement = new SelectElement(element);
-            selectElement.SelectByText(text);
-        }
+        //public static void SelectDropdownByText(this IWebElement element, string text)
+        //{
+        //    var selectElement = new SelectElement(element);
+        //    selectElement.SelectByText(text);
+        //}
 
-        public static void SelectDropdownByValue(this IWebElement element, string value)
-        {
-            var selectElement = new SelectElement(element);
-            selectElement.SelectByValue(value);
-        }
+        //public static void SelectDropdownByValue(this IWebElement element, string value)
+        //{
+        //    var selectElement = new SelectElement(element);
+        //    selectElement.SelectByValue(value);
+        //}
 
-        public static void MultipleSelectElements(this IWebElement element, string[] values)
-        {
-            var selectElement = new SelectElement(element);
+        //public static void MultipleSelectElements(this IWebElement element, string[] values)
+        //{
+        //    var selectElement = new SelectElement(element);
 
-            foreach (var value in values)
-            {
-                selectElement.SelectByValue(value);
-            }
-        }
+        //    foreach (var value in values)
+        //    {
+        //        selectElement.SelectByValue(value);
+        //    }
+        //}
 
-        public static IEnumerable<T> GetAllSelectedLists<T>(this IWebElement element)
+        public static IEnumerable<T> GetAllSelectedList<T>(this IWebElement element)
         {
             var selectElement = new SelectElement(element);
 
