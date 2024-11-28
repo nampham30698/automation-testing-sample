@@ -9,10 +9,17 @@ namespace AutomationTestingSample.Testing.Tests
         }
 
         [TestCase]
-        public void AutoBuffLikesAndComments()
+        public void AutoBuffLikes()
         {
             var page = new BuffLikesAndCommentsPage(Driver);
             page.BuffLikes();
+        }
+
+        [TestCase]
+        public void AutoBuffComments()
+        {
+            var page = new BuffLikesAndCommentsPage(Driver);
+            page.BuffComments();
         }
     }
 }

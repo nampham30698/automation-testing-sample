@@ -1,6 +1,7 @@
 ﻿using AutomationTestingSample.Core.Common;
 using AutomationTestingSample.Core.Reports;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System.Collections.ObjectModel;
@@ -28,6 +29,13 @@ namespace AutomationTestingSample.Testing.Pages
             Driver.Navigate().GoToUrl(url);
         }
         
+        protected virtual void MoveToElement(IWebElement element)
+        {
+            Actions actions = new(Driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
         protected virtual IWebElement HighlightElement(IWebElement element) {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)Driver;
             jse.ExecuteScript("arguments[0].style.border='2px solid red'", element);
