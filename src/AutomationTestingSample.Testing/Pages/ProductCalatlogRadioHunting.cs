@@ -67,7 +67,7 @@ namespace AutomationTestingSample.Testing.Pages
                 "https://temose.com/campaign/ne3vcvc",
                 "https://temose.com/campaign/4ggfgfg",
                 "https://temose.com/campaign/spo6c5v6",
-                "https://temose.com/campaign/tenn4dfg",
+                //"https://temose.com/campaign/tenn4dfg",
                 "https://temose.com/campaign/jac4fgh6",
                 "https://temose.com/campaign/ind45ghgy",
                 "https://temose.com/campaign/3cv45vv",
@@ -203,13 +203,15 @@ namespace AutomationTestingSample.Testing.Pages
 
             int skuParentNumber = 0;
 
+            int imgint = 1;
+
             foreach (var item in data)
             {
                 try
                 {
                     skuParentNumber++;
 
-                    var sku = $"{ProductConstants.SKU}{skuParentNumber}";
+                    var sku = $"{ProductConstants.SKU}-{skuParentNumber}";
 
                     #region main product
 
@@ -244,7 +246,18 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Categories].Value = ProductConstants.Categories;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Tags].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.ShippingClass].Value = "";
-                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = string.Join(',', item.Images);
+
+                    if(item.Images.Count == 1)
+                    {
+                        workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = string.Join(',', item.Images);
+                    }
+                    else
+                    {
+                        workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = $"https://github.com/nampham30698/automation-testing-sample/blob/nampv/woocommerce/images/{imgint}.jpeg,https://github.com/nampham30698/automation-testing-sample/blob/nampv/woocommerce/images/{imgint + 1}.jpeg";
+                    }
+
+                    imgint += 2;
+
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.DownloadLimit].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.DownloadExpiryDays].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Parent].Value = "";
