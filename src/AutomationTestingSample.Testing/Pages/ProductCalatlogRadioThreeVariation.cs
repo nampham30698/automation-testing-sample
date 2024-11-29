@@ -6,8 +6,8 @@ using System.Collections.ObjectModel;
 
 namespace AutomationTestingSample.Testing.Pages
 {
-    // url https://gotyourstyle.com/product-category/clothings/hoodie/nfl-merry-christmas-collection-2024/?fbclid=IwY2xjawG1EY5leHRuA2FlbQIxMAABHQIht84DYiJYqO5vO_-yXUDiyX5ekyhPn09hM-8Hbq4NSVa7ofMwz0hqHA_aem_WVI6C6EpsIEraQVIndqZ_A
-    public class ProductCalatlogRadio : WebPageBase
+    // url https://gotyourstyle.com/product-category/clothings/hoodie/nfl-fishing-collection-2024
+    public class ProductCalatlogRadioThreeVariation : WebPageBase
     {
         private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'woocommerce-image__wrapper')]//a"));
 
@@ -28,7 +28,7 @@ namespace AutomationTestingSample.Testing.Pages
         private By _productMainImageBy => By.XPath("(//main[contains(@class,'site-main')]//div[contains(@class,'woocommerce-product-gallery__wrapper')]//img)[1]");
         private By _productImagesBy => By.XPath("//main[contains(@class,'site-main')]//ol[contains(@class,'flex-control-thumbs')]//img");
 
-        public ProductCalatlogRadio(IWebDriver driver) : base(driver)
+        public ProductCalatlogRadioThreeVariation(IWebDriver driver) : base(driver)
         {
 
         }
@@ -47,43 +47,38 @@ namespace AutomationTestingSample.Testing.Pages
 
             var links = new List<string>()
             {
-                 "https://gotyourstyle.com/product/pittsburgh-steelers-nfl-x-chill-guy-2024-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/minnesota-vikings-2024-merry-christmas-premium-new-limited-pullover-hoodie/",
-                "https://gotyourstyle.com/product/green-bay-packers-nfl-chill-guy-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/detroit-lions-2024-merry-christmas-premium-new-limited-pullover-hoodie/",
-                "https://gotyourstyle.com/product/cincinnati-bengals-2024-merry-christmas-premium-new-limited-pullover-hoodie/",
-                "https://gotyourstyle.com/product/washington-commanders-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/tennessee-titans-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/tampa-bay-buccaneers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/seattle-seahawks-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/san-francisco-49ers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/philadelphia-eagles-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-york-jets-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-york-giants-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-orleans-saints-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-england-patriots-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/miami-dolphins-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/los-angeles-rams-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/los-angeles-chargers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/las-vegas-raiders-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/jacksonville-jaguars-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/indianapolis-colts-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/houston-texans-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/green-bay-packers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/detroit-lions-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/denver-broncos-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/dallas-cowboys-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/cleveland-browns-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/cincinnati-bengals-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/chicago-bears-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/carolina-panthers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/buffalo-bills-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/baltimore-ravens-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/atlanta-falcons-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/arizona-cardinals-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/pittsburgh-steelers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/minnesota-vikings-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/kansas-city-chiefs-2024-christmas-limited-edition-hoodie/"
+                 "https://gotyourstyle.com/product/washington-commanders-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/tennessee-titans-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/tampa-bay-buccaneers-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/seattle-seahawks-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/san-francisco-49ers-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/pittsburgh-steelers-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/new-york-jets-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/new-york-giants-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/new-orleans-saints-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/new-england-patriots-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/minnesota-vikings-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/miami-dolphins-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/los-angeles-rams-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/los-angeles-chargers-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/las-vegas-raiders-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/kansas-city-chiefs-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/jacksonville-jaguars-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/indianapolis-colts-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/denver-broncos-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/dallas-cowboys-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/cleveland-browns-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/cincinnati-bengals-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/chicago-bears-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/carolina-panthers-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/atlanta-falcons-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/arizona-cardinals-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/philadelphia-eagles-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/houston-texans-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/green-bay-packers-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/detroit-lions-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/buffalo-bills-nfl-x-fishing-2024-limited-edition-hoodie/",
+                "https://gotyourstyle.com/product/baltimore-ravens-nfl-x-fishing-2024-limited-edition-hoodie/"
 
             };
 
@@ -192,7 +187,7 @@ namespace AutomationTestingSample.Testing.Pages
 
         private void ExportExel(List<ProductMetadata> data)
         {
-            var filePath = FileHelpers.ProjectPath + "woo_product_template.xlsx";
+            var filePath = FileHelpers.ProjectPath + "woo_product_template_three_variation.xlsx";
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             using ExcelPackage excel = new(new FileInfo(filePath));
@@ -211,7 +206,7 @@ namespace AutomationTestingSample.Testing.Pages
                 {
                     skuParentNumber++;
 
-                    var sku = $"{ProductConstants.SKU}{skuParentNumber}";
+                    var sku = $"{ProductConstants.SKU}-{skuParentNumber}";
 
                     #region main product
 
@@ -266,6 +261,11 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Values].Value = string.Join(',', item.Attribute2) + ",Cap one size";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Visible].Value = 1;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Global].Value = 0;
+
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute3Name].Value = ProductConstants.Attribute3Name;
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute3Values].Value = "Black,Green,Beige";
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute3Visible].Value = 1;
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute3Global].Value = 0;
 
                     #endregion
 
@@ -336,6 +336,8 @@ namespace AutomationTestingSample.Testing.Pages
                             workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Visible].Value = "";
                             workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Global].Value = 0;
 
+                            workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute3Name].Value = ProductConstants.Attribute3Name;
+
                             #endregion
 
                             rowChild++;
@@ -393,6 +395,8 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Values].Value = "Cap one size";
                     workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Visible].Value = "";
                     workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Global].Value = 0;
+
+                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute3Name].Value = ProductConstants.Attribute3Name;
 
                     rowIndex = rowChild + 1;
 
@@ -492,6 +496,10 @@ namespace AutomationTestingSample.Testing.Pages
             Attribute2Values,
             Attribute2Visible,
             Attribute2Global,
+            Attribute3Name,
+            Attribute3Values,
+            Attribute3Visible,
+            Attribute3Global,
         }
 
         public static class ProductConstants
@@ -515,28 +523,31 @@ namespace AutomationTestingSample.Testing.Pages
 
 <strong>WASHABLE:</strong> Machine wash.
 
-<strong>Pittsburgh Steelers NFL x Chill Guy 2024 Limited Edition Hoodie: Laid-Back Steelers Style with a Meme Twist</strong>
+<strong>Baltimore Ravens NFL x Fishing 2024 Limited Edition Hoodie: A Catch for Ravens Fans Who Love Fishing</strong>
 
-The <strong>Pittsburgh Steelers NFL x Chill Guy 2024 Limited Edition Hoodie</strong> is designed for Steelers fans who appreciate a more relaxed and humorous approach to fan apparel. This hoodie combines the team’s branding with the popular “Chill Guy” internet meme, creating a fun and casual piece of clothing. While the image also shows sweatpants and a cap, the primary focus is the hoodie.
+The <strong>Baltimore Ravens NFL x Fishing 2024 Limited Edition Hoodie</strong> is designed for fans who enjoy both football and fishing. This hoodie combines the Baltimore Ravens branding with fishing-themed graphics and a camouflage pattern, creating a unique and appealing piece of apparel for Ravens fans who want to show their love for both their team and their favorite pastime.
 
-<strong>Design Details that Combine Steelers Spirit and “Chill Guy” Cool</strong>
+<strong>Design Details that Blend Football and Fishing</strong>
 <ul>
- 	<li><strong>Black Base:</strong> The hoodie features a black base, consistent with the Pittsburgh Steelers’ primary color.</li>
- 	<li><strong>“Chill Guy” Character in Steelers Gear (Front and Back):</strong> The front and back of the hoodie prominently display the “Chill Guy” meme character dressed in Steelers attire, including a team jersey. On the front, the text “Just a chill guy” accompanies the character.</li>
- 	<li><strong>“Steelers” Text (Back):</strong> “Steelers” is prominently displayed on the back below the Chill Guy character.</li>
- 	<li><strong>All-Over Print Option (Front):</strong> The front of the hoodie has an all-over print option featuring the Steelers logo and name repeated, as shown in one of the images. This provides an alternative design for those who prefer a busier look.</li>
- 	<li><strong>NFL Logo and Steelers Logo (Sleeves):</strong> Both the NFL logo and the Steelers logo are featured on the sleeves.</li>
- 	<li><strong>Nike Swoosh (Sleeve):</strong> A small Nike swoosh appears on one sleeve.</li>
+ 	<li><strong>Camouflage Pattern:</strong> The hoodie features a camouflage pattern, making it ideal for outdoor activities like fishing. This pattern also adds a rugged and outdoorsy aesthetic. The specific camouflage pattern appears to vary slightly between images, possibly representing different available options.</li>
+ 	<li><strong>Ravens Logo and “Baltimore” Text:</strong> The front of the hoodie displays the Baltimore Ravens logo and the word “BALTIMORE,” clearly identifying the team. The option for custom name personalization above the location adds a personal touch.</li>
+ 	<li><strong>Fishing-Themed Back Design:</strong> The back of the hoodie features a stylized American flag graphic with a largemouth bass superimposed over it. A fishing rod and reel are also incorporated into the design, further emphasizing the fishing theme. The Ravens logo appears in the upper left corner of the flag, connecting the team to the overall design.</li>
+ 	<li><strong>NFL Shield Logo:</strong> A small NFL shield logo on the left sleeve adds an official touch.</li>
+ 	<li><strong>American Flag Patch:</strong> A subdued American flag patch on the left sleeve adds a patriotic element.</li>
+ 	<li><strong>Matching Cap:</strong> The included cap features the Ravens logo on a camouflage background, complementing the hoodie’s design.</li>
 </ul>
-<strong>A Hoodie for Fans Who Embrace Internet Humor</strong>
+<strong>A Hoodie for Ravens Fans Who Enjoy the Outdoors</strong>
 
-The <strong>Pittsburgh Steelers NFL x Chill Guy 2024 Limited Edition Hoodie</strong> targets fans who are familiar with internet culture and appreciate the humor of the “Chill Guy” meme. By incorporating this meme, the hoodie offers a more lighthearted and contemporary way to express Steelers fandom. This hoodie is a great choice for fans who want to show their team spirit in a relaxed and fun style. The accompanying sweatpants and cap, featuring similar design elements, allow for a complete “Chill Guy” Steelers ensemble.";
+The <strong>Baltimore Ravens NFL x Fishing 2024 Limited Edition Hoodie</strong> is more than just a piece of fan apparel. It’s a way for Ravens fans to express their passion for both their team and the outdoors, specifically fishing. The combination of team branding, fishing graphics, and the camouflage pattern creates a unique and appealing design that is perfect for anglers and football enthusiasts alike.";
 
             public const string SKU = "nfl-fishing-collection-2024";
             public const string Categories = "NFL Fishing Collection 2024";
 
             public const string Attribute1Name = "Hoodie Type";
+
             public const string Attribute2Name = "Size";
+
+            public const string Attribute3Name = "Hoodie Color";
 
             public static VariationType VariationType = VariationType.Buttom;
         }
