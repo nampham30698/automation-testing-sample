@@ -185,7 +185,7 @@ namespace AutomationTestingSample.Testing.Pages
             var galleryImages = FindElements(_productImagesBy);
             if (galleryImages.Count > 0)
             {
-                return galleryImages.Select(x => x.GetAttribute("src")).ToList();
+                return galleryImages.Select(x => x.GetAttribute("src").Replace("-100x100", "")).ToList();
             }
             return [FindElement(_productMainImageBy).GetAttribute("src")];
         }
