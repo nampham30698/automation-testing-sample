@@ -1,4 +1,5 @@
 ﻿using AutomationTestingSample.Core.Extensions;
+using AutomationTestingSample.Core.Reports;
 using OpenQA.Selenium;
 
 namespace AutomationTestingSample.Testing.Pages
@@ -9,8 +10,8 @@ namespace AutomationTestingSample.Testing.Pages
         private const string _facebookServicesUrl = "https://leduyhiep.com/service/facebook/like-post";
         private const string _facebookCommentsUrl = "https://leduyhiep.com/service/facebook/comment";
 
-        private const string _userNameActual = "";
-        private const string _passwordActual = "";
+        private const string _userNameActual = "hoatran68";
+        private const string _passwordActual = "Hoatran123$";
 
         private IWebElement _userName => FindElement(By.XPath("//input[@id='username']"));
 
@@ -32,68 +33,38 @@ namespace AutomationTestingSample.Testing.Pages
 
         private IWebElement _textArea => FindElement(By.XPath("//textarea[@id='comments']"));
 
+        private Random _random = new Random();
+
         private readonly List<LikePostOption> _likePosts =
         [
-            //new(){PostId = "1703717253774645"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "386232357824186"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "379316815191082"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1152211896079429"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "519277260561472"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1021095966341962"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1496169134621176"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1857515754732326"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "3778232422392017"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "493063779980982"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1045815300400518"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "499172146189537"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "523880836944574"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "823236063256203"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1644755969640562"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "823356903241928"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "2152621815138189"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1018558053338689"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "513222431217270"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "841610330978242"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "482839351121799"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "368165326119254"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "2205358206515657"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "8538765146151501"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "466473426152484"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "842250167845969"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "858915015671082"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "3705344403114702"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1186444782594639"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1946131319159760"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1866294283858695"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "529170736131597"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "514132211021035"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "511729334583194"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1518304959124579"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1034897591600710"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "2842358402607540"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "524983626759651"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1017498763201436"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1019270386592473"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1247656296267527"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "961797952645939"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1327768558632774"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "920811729896326"      , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "2440156319521722"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1253288069185853"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1648276512410105"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1063874518482170"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1233683087767479"     , Quality = 50, Service = ServicesConstants.Sv5 },
-            //new(){PostId = "1332627191056626"     , Quality = 50, Service = ServicesConstants.Sv5 },
+             new(){PostId = "1105186230602198" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1279199653211943" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "3466176840342628" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "566130932680418"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1223877022030702" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "575361315084258"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1237506710863240" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1098307835219198" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "465901132771132"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1153453742864493" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "444782242009722"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "8782369408483459" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1102842228006189" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "890686319507254"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "890686319507254"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "503014379433673"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "577808677967936"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "2252422141794134" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1280408406629216" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+        ];
 
-            //new(){PostId = "1559339094690261"      , Quality = 10, Service = ServicesConstants.Sv2 },
-            //new(){PostId = "1532203654083982"     , Quality = 10, Service = ServicesConstants.Sv2},
-            //new(){PostId = "2385922731749820"     , Quality = 10, Service = ServicesConstants.Sv2 },
-            //new(){PostId = "407440992302718"     , Quality = 10, Service = ServicesConstants.Sv2 },
-            //new(){PostId = "3862765460719268"     , Quality = 10, Service = ServicesConstants.Sv2 },
+        private readonly List<LikePostOption> _commentsData = 
+        [
             new(){PostId = "1443002343770419"     , Quality = 10, Service = ServicesConstants.Sv2 },
             new(){PostId = "1594460751443962"     , Quality = 10, Service = ServicesConstants.Sv2 },
             new(){PostId = "523365447076919"     , Quality = 10, Service = ServicesConstants.Sv2},
-        ];
+        ]; 
+            
 
 
         public BuffLikesAndCommentsPage(IWebDriver driver) : base(driver)
@@ -136,55 +107,69 @@ namespace AutomationTestingSample.Testing.Pages
         {
             foreach (var item in _likePosts)
             {
-                _inputPost.EnterText(item.PostId);
-                var selectOption = FindElement(By.XPath(string.Format(_seviceString, item.Service)));
-                selectOption.Click();
-                _inputQuality.EnterText(item.Quality.ToString());
+                try
+                {
+                    _inputPost.EnterText(item.PostId);
+                    var selectOption = FindElement(By.XPath(string.Format(_seviceString, item.Service)));
+                    selectOption.Click();
+                    _inputQuality.EnterText(item.Quality.ToString());
 
-                MoveToElement(_btnCreateProcess);
-                _btnCreateProcess.Click();
+                    MoveToElement(_btnCreateProcess);
+                    _btnCreateProcess.Click();
 
-                _btnConfirmation.Click();
+                    _btnConfirmation.Click();
 
-                Thread.Sleep(7000);
-                _btnConfirmation.Click();
+                    Thread.Sleep(7000);
+                    _btnConfirmation.Click();
 
-                Thread.Sleep(1000);
-                NavigateToUrl(_facebookServicesUrl);
+                    Thread.Sleep(1000);
+                    NavigateToUrl(_facebookServicesUrl);
+                }
+                catch
+                {
+                    ExtentReporting.Instance.LogInfo("Fail at id: " + item.PostId);
+                }
             }
         }
 
         public void EnterCommentsService()
         {
-            foreach (var item in _likePosts)
+            foreach (var item in _commentsData)
             {
-                _inputPost.EnterText(item.PostId);
-                var selectOption = FindElement(By.XPath(string.Format(_seviceString, item.Service)));
-                selectOption.Click();
+                try
+                {
+                    _inputPost.EnterText(item.PostId);
+                    var selectOption = FindElement(By.XPath(string.Format(_seviceString, item.Service)));
+                    selectOption.Click();
 
-                _textArea.EnterText(@"Tranh bao nhiêu vậy bạn
-Báo giá kích thước tranh
-..
-bn vậy
-Giá tranh sao shop
-ib gia
-Ngang 60 giá bao nhiêu
-xin giá shop
-Tranh này bao nhiêu
-Các mẫu tranh đẹp nhất");
+                    _textArea.EnterText(@"xin gía sỉ
+                    ..
+                    Bn vậy shop
+                    15 chiếc giá sao
+                    ib gia
+                    Xin giá shop
+                    ib ạ
+                    bn ạ
+                    check ib
+                    mẫu này bao nhiêu");
 
-                _inputQuality.EnterText(item.Quality.ToString());
+                    _inputQuality.EnterText(item.Quality.ToString());
 
-                MoveToElement(_btnCreateProcess);
-                _btnCreateProcess.Click();
+                    MoveToElement(_btnCreateProcess);
+                    _btnCreateProcess.Click();
 
-                _btnConfirmation.Click();
+                    _btnConfirmation.Click();
 
-                Thread.Sleep(7000);
-                _btnConfirmation.Click();
+                    Thread.Sleep(7000);
+                    _btnConfirmation.Click();
 
-                Thread.Sleep(1000);
-                NavigateToUrl(_facebookCommentsUrl);
+                    Thread.Sleep(1000);
+                    NavigateToUrl(_facebookCommentsUrl);
+                }
+                catch
+                {
+                    ExtentReporting.Instance.LogInfo("Fail at url: " + item.PostId);
+                }
             }
         }
 
