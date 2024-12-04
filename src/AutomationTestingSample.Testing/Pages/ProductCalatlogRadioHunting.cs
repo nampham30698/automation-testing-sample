@@ -253,7 +253,7 @@ namespace AutomationTestingSample.Testing.Pages
                     }
                     else
                     {
-                        workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = $"https://github.com/nampham30698/automation-testing-sample/blob/nampv/woocommerce/images/{imgint}.jpeg,https://github.com/nampham30698/automation-testing-sample/blob/nampv/woocommerce/images/{imgint + 1}.jpeg";
+                        workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = $"https://raw.githubusercontent.com/nampham30698/automation-testing-sample/refs/heads/nampv/woocommerce/images/{imgint}.png,https://raw.githubusercontent.com/nampham30698/automation-testing-sample/refs/heads/nampv/woocommerce/images/{imgint+1}.png";
                     }
 
                     imgint += 2;

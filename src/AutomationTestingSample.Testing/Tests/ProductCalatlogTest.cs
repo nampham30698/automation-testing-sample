@@ -2,9 +2,9 @@
 
 namespace AutomationTestingSample.Testing.Tests
 {
-    public class WebsiteCopyProducts : TestBase
+    public class ProductCalatlogTest : TestBase
     {
-        public WebsiteCopyProducts(string browserType, int browserWidth, int browserHeight) : base(browserType, browserWidth, browserHeight)
+        public ProductCalatlogTest(string browserType, int browserWidth, int browserHeight) : base(browserType, browserWidth, browserHeight)
         {
         }
 
