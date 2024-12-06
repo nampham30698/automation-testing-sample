@@ -68,7 +68,6 @@ namespace AutomationTestingSample.Testing.Pages
         ]; 
             
 
-
         public BuffLikesAndCommentsPage(IWebDriver driver) : base(driver)
         {
 
@@ -133,6 +132,7 @@ namespace AutomationTestingSample.Testing.Pages
             }
         }
 
+        
         public void EnterCommentsService()
         {
             foreach (var item in _commentsData)
