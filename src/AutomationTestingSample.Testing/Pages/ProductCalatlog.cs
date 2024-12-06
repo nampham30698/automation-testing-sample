@@ -61,82 +61,12 @@ namespace AutomationTestingSample.Testing.Pages
 
             //productMetadata.Add(GetProductInfo("https://championssport.store/product/limited-edition-pittsburgh-penguins-grateful-dead-night-hoodie-set-v3nt17112416id10ds11/"));
 
-            //var links = _singleProductLinks.Select(x => x.GetAttribute("href")).ToList();
+            var links = _singleProductLinks.Select(x => x.GetAttribute("href")).ToList();
 
-            var links = new List<string>()
-            {
-                "https://merchsport.net/product/_miami-dolphins-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_-pittsburgh-steelers-2024-salute-to-service-hoodie/",
-                "https://merchsport.net/product/_dallas-cowboys-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/__kansas-city-chiefs-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/__new-england-patriots-hoodie-camo-2024-salute-to-service-club/",
-                "https://merchsport.net/product/__philadelphia-eagles-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_arizona-cardinals-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_atlanta-falcons-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_baltimore-ravens-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_carolina-panthers-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_chicago-bears-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_cincinnati-bengals-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_cleveland-browns-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_denver-broncos-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_detroit-lions-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/detroit-lions-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/_green-bay-packers-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_-houston-texans-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_indianapolis-colts-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_jacksonville-jaguars-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/kansas-city-chiefs-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/_las-vegas-raiders-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_los-angeles-chargers-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_los-angeles-rams-2024-salute-to-service-hoodie/",
-                "https://merchsport.net/product/_minnesota-vikings-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_new-orleans-saints-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_new-york-giants-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/_new-york-jets-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/pittsburgh-steelers-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/_san-francisco-49ers-hoodie-camo-2024-salute-to-service-club/",
-                "https://merchsport.net/product/seattle-seahawks-nike-arctic-camo-2024-salute-to-service-club-hoodie-2024-limited-edition-2/",
-                "https://merchsport.net/product/_tampa-bay-buccaneers-hoodie-camo-2024-salute-to-service-club-limited-edition/",
-                "https://merchsport.net/product/washington-commanders-hoodie-camo-2024-salute-to-service-club-2/",
-                "https://merchsport.net/product/_arizona-cardinals-jersey-camo-2024-salute-to-service-club-limited-edition-4/",
-                "https://merchsport.net/product/_los-angeles-chargers-jersey-camo-2024-salute-to-service-club-limited-edition-4/",
-                "https://merchsport.net/product/_miami-dolphins-nike-arctic-camo-2024-salute-to-service-club-flash-%e2%9a%a1%ef%b8%8f-sale-jersey-limited-editions-5/",
-                "https://merchsport.net/product/_new-orleans-saints-jersey-camo-2024-salute-to-service-club-limited-edition-3/",
-                "https://merchsport.net/product/_san-francisco-49ers-jersey-camo-2024-salute-to-service-club-5/",
-                "https://merchsport.net/product/dallas-cowboys-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/los-angeles-rams-jersey-camo-2024-salute-to-service-club/",
-                "https://merchsport.net/product/new-england-patriots-jersey-camo-2024-salute-to-service-club-5/",
-                "https://merchsport.net/product/_-kansas-city-chiefs-nike-arctic-camo-2024-salute-to-service-club-jersey-9/",
-                "https://merchsport.net/product/arizona-cardinals-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/atlanta-falcons-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/baltimore-ravens-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/buffalo-bills-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/carolina-panthers-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/chicago-bears-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/cincinnati-bengals-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/cleveland-browns-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/denver-broncos-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/green-bay-packers-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/houston-texans-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/indianapolis-colts-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/jacksonville-jaguars-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/las-vegas-raiders-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/los-angeles-chargers-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/los-angeles-rams-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/miami-dolphins-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/minnesota-vikings-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/new-england-patriots-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/new-orleans-saints-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/new-york-giants-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/new-york-jets-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/philadelphia-eagles-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/san-francisco-49ers-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/seattle-seahawks-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/tampa-bay-buccaneers-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/tennessee-titans-2024-salute-to-service-club-hoodie/",
-                "https://merchsport.net/product/tennessee-titans-x-duck-hunting-hoodie-2024-limited-edition/",
-                "https://merchsport.net/product/washington-commanders-x-duck-hunting-hoodie-2024-limited-edition/"
-            };
+            //var links = new List<string>()
+            //{
+               
+            //};
 
             foreach (var link in links)
             {
@@ -161,7 +91,7 @@ namespace AutomationTestingSample.Testing.Pages
                 {
                     Url = url,
                     Title = _productTitle.Text,
-                    Description = _productDescription.GetAttribute("innerHTML").Trim(),
+                    //Description = _productDescription.GetAttribute("innerHTML").Trim(),
                     //RegularPrice = Parser.ParseDoube(_productRegularPrice.Text),
                     //SalePrice = Parser.ParseDoube(_productSalePrice.Text),
                     Attribute1 = GetAttribute1Values(),
@@ -198,7 +128,7 @@ namespace AutomationTestingSample.Testing.Pages
 
                 foreach (var style in _productButtomAttribute1)
                 {
-                    if (style.Text.Trim().Equals("Cap", StringComparison.OrdinalIgnoreCase)) continue;
+                    //if (style.Text.Trim().Equals("Cap", StringComparison.OrdinalIgnoreCase)) continue;
                     Thread.Sleep(200);
 
                     var styleClasses = style.GetAttribute("class");
@@ -241,11 +171,12 @@ namespace AutomationTestingSample.Testing.Pages
         {
             if(ProductConstants.VariationType == VariationType.Buttom)
             {
-                return _productButtomAttribute1.Select(x => x.Text.Trim()).Where(x => !x.Equals("Cap", StringComparison.OrdinalIgnoreCase)).ToList();
+                return _productButtomAttribute1.Select(x => x.Text.Trim()).ToList();
+                //return _productButtomAttribute1.Select(x => x.Text.Trim()).Where(x => !x.Equals("Cap", StringComparison.OrdinalIgnoreCase)).ToList();
             }
             else
             {
-                return _productSelectAttribute1.Options.Skip(1).Select(x => x.Text.Trim()).Where(x => !x.Equals("cap", StringComparison.OrdinalIgnoreCase)).ToList();
+                return _productSelectAttribute1.Options.Skip(1).Select(x => x.Text.Trim()).Where(x => !x.Equals("cap", StringComparison.OrdinalIgnoreCase) && !x.Contains("Snapback Cap", StringComparison.OrdinalIgnoreCase)).ToList();
             }
         }
 
@@ -253,9 +184,11 @@ namespace AutomationTestingSample.Testing.Pages
         {
             if (ProductConstants.VariationType == VariationType.Buttom)
             {
-                return _productButtomAttribute2.Select(x => x.Text.Trim()).Where(x => !x.Contains("Cap one size", StringComparison.OrdinalIgnoreCase) && 
-                !x.Contains("One Size Cap", StringComparison.OrdinalIgnoreCase) && !x.Contains("Caps one size", StringComparison.OrdinalIgnoreCase) && 
-                !x.Contains("Kid", StringComparison.OrdinalIgnoreCase)).ToList();
+                return _productButtomAttribute2.Select(x => x.Text.Trim()).ToList();
+
+                //return _productButtomAttribute2.Select(x => x.Text.Trim()).Where(x => !x.Contains("Cap one size", StringComparison.OrdinalIgnoreCase) &&
+                //!x.Contains("One Size Cap", StringComparison.OrdinalIgnoreCase) && !x.Contains("Caps one size", StringComparison.OrdinalIgnoreCase) &&
+                //!x.Contains("Kid", StringComparison.OrdinalIgnoreCase)).ToList();
             }
             else
             {
@@ -294,7 +227,7 @@ namespace AutomationTestingSample.Testing.Pages
                 {
                     skuParentNumber++;
 
-                    var sku = $"{ProductConstants.SKU}{skuParentNumber}";
+                    var sku = $"{ProductConstants.SKU}-{skuParentNumber}";
 
                     #region main product
 
@@ -306,7 +239,7 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.IsFeatured].Value = 0;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.VisibilityINCatalog].Value = "visible";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.ShortDescription].Value = "";
-                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Description].Value = item.Description; //ProductConstants.Description
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Description].Value = ProductConstants.Description;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.DateSalePriceStarts].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.DateSalePriceEnds].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.TaxStatus].Value = "taxable";
@@ -341,12 +274,12 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Position].Value = 0;
 
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute1Name].Value = ProductConstants.Attribute1Name;
-                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute1Values].Value = string.Join(',', item.Attribute1) + ",Cap";
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute1Values].Value = string.Join(',', item.Attribute1);
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute1Visible].Value = 1;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute1Global].Value = 0;
 
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Name].Value = ProductConstants.Attribute2Name;
-                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Values].Value = string.Join(',', item.Attribute2) + ",Cap one size";
+                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Values].Value = string.Join(',', item.Attribute2);
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Visible].Value = 1;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Attribute2Global].Value = 0;
 
@@ -425,59 +358,59 @@ namespace AutomationTestingSample.Testing.Pages
                         }
                     }
 
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Id].Value = item.Url;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Type].Value = ProductConstants.variation;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.SKU].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Name].Value = item.Title;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Published].Value = 1;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.IsFeatured].Value = 0;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.VisibilityINCatalog].Value = "visible";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.ShortDescription].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Description].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.DateSalePriceStarts].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.DateSalePriceEnds].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.TaxStatus].Value = "taxable";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.TaxClass].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.InStock].Value = 1;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Stock].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.LowStock].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.BackOrdersAllowed].Value = 0;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.SoldIndividually].Value = 0;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Weight].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Lenght].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Width].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Height].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.AllowCustomerReviews].Value = 0;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.PurchaseNote].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Id].Value = item.Url;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Type].Value = ProductConstants.variation;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.SKU].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Name].Value = item.Title;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Published].Value = 1;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.IsFeatured].Value = 0;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.VisibilityINCatalog].Value = "visible";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.ShortDescription].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Description].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.DateSalePriceStarts].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.DateSalePriceEnds].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.TaxStatus].Value = "taxable";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.TaxClass].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.InStock].Value = 1;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Stock].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.LowStock].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.BackOrdersAllowed].Value = 0;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.SoldIndividually].Value = 0;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Weight].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Lenght].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Width].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Height].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.AllowCustomerReviews].Value = 0;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.PurchaseNote].Value = "";
 
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.SalePrice].Value = "39.99";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.RegularPrice].Value = "35.99";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.SalePrice].Value = "35.95";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.RegularPrice].Value = "55.99";
 
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Categories].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Tags].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.ShippingClass].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Images].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.DownloadLimit].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.DownloadExpiryDays].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Parent].Value = sku;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.GroupedProduct].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.UpSells].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.CrossSells].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.ExternalUrl].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.ButtonText].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Position].Value = variationPosition + 1;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Categories].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Tags].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.ShippingClass].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Images].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.DownloadLimit].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.DownloadExpiryDays].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Parent].Value = sku;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.GroupedProduct].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.UpSells].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.CrossSells].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.ExternalUrl].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.ButtonText].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Position].Value = variationPosition + 1;
 
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Name].Value = ProductConstants.Attribute1Name;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Values].Value = "Cap";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Visible].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Global].Value = 0;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Name].Value = ProductConstants.Attribute1Name;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Values].Value = "Cap";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Visible].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute1Global].Value = 0;
 
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Name].Value = ProductConstants.Attribute2Name;
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Values].Value = "Cap one size";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Visible].Value = "";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Global].Value = 0;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Name].Value = ProductConstants.Attribute2Name;
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Values].Value = "Cap one size";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Visible].Value = "";
+                    //workSheet.Cells[rowChild, (int)WooExcelColumn.Attribute2Global].Value = 0;
 
-                    rowIndex = rowChild +  1;
+                    rowIndex = rowChild; //rowChild +1
 
                     totalItemImported++;
                 }
@@ -583,10 +516,62 @@ namespace AutomationTestingSample.Testing.Pages
             public const string Variable = "variable";
             public const string variation = "variation";
 
-            public const string Description = @"";
+            public const string Description = @"<strong>HOODIE</strong>
 
-            public const string SKU = "salute-to-service-unisex-hoodie-mg";
-            public const string Categories = "Salute to Service Unisex Hoodie MG";
+This comfortable unisex pullover hoodie is thermal hoodie that is perfect to keep warm. The comfortable and unisex cut is suitable for both men and women. The unique pattern of high quality print makes you landscape in the crowd.
+<ul>
+ 	<li>Round neck design. The classic round neck with hood.</li>
+ 	<li>Great material. The polyester material keeps you warm in winter.</li>
+ 	<li>Regular fit. Loose-fitting design maximizes comfort.</li>
+ 	<li>Soft sleeve cuff and hem. Elastic and soft sleeve cuffs for fashion and comfort.</li>
+ 	<li>High quality print. Make unique pattern with high quality print.</li>
+</ul>
+<div class=""vtab_container""><strong>JOOGER</strong></div>
+<div>
+<div class=""size-HHart-description"">
+<div class=""vtab-wrap"">
+<div class="""">
+<div class="""">
+<div class="""">
+<div class="""">
+<div class="""">
+<div class="""">
+<div class="""">
+<ul>
+ 	<li>Round neck design. The classic round neck with hood.</li>
+ 	<li>Great material. The polyester material keeps you warm in winter.</li>
+ 	<li>Regular fit. Loose-fitting design maximizes comfort.</li>
+ 	<li>Soft sleeve cuff and hem. Elastic and soft sleeve cuffs for fashion and comfort.</li>
+ 	<li>High quality print. Make unique pattern with high quality print</li>
+</ul>
+<div class=""is-uppercase pointer flex items-center""><strong><span class=""toggle_heading flex-grow"">DESCRIPTION CAP</span></strong></div>
+<div class=""toggle_content mt12"" data-old-padding-top="""" data-old-padding-bottom="""" data-old-overflow="""">
+<div class=""product__description-html"">
+<ul>
+ 	<li>Unisex</li>
+ 	<li>Faith over fear hat products made by: Prideearthdesign?.</li>
+ 	<li>Material: Polyester and cotton.</li>
+ 	<li>Size: Adjustable cap circumference 57-62cm.</li>
+ 	<li>Printing teHHnology: Thermal transfer process, front printing.</li>
+ 	<li>High stature hat to give you the uptown street fashion and style.</li>
+ 	<li>Easy to adjust: adjustable knot design at the back of the hat to fit all head sizes.</li>
+ 	<li>Harden cap crown structure at the cap front uplifts the whole cap design, making the cap undeformable.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>";
+
+            public const string SKU = "auburn-football";
+            public const string Categories = "Auburn Football";
 
             public const string Attribute1Name = "Style";
             public const string Attribute2Name = "Size";

@@ -37,25 +37,12 @@ namespace AutomationTestingSample.Testing.Pages
 
         private readonly List<LikePostOption> _likePosts =
         [
-             new(){PostId = "1105186230602198" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1279199653211943" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "3466176840342628" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "566130932680418"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1223877022030702" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "575361315084258"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1237506710863240" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1098307835219198" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "465901132771132"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1153453742864493" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "444782242009722"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "8782369408483459" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1102842228006189" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "890686319507254"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "890686319507254"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "503014379433673"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "577808677967936"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "2252422141794134" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
-             new(){PostId = "1280408406629216" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "422850970902763" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1520291975348681" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "947190430622907" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1079461930634883"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "1648884415668975" , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
+             new(){PostId = "527033117000117"  , Quality = new Random().Next(50,70), Service = ServicesConstants.Sv5 },
         ];
 
         private readonly List<LikePostOption> _commentsData = 
