@@ -6,14 +6,14 @@ using System.Collections.ObjectModel;
 
 namespace AutomationTestingSample.Testing.Pages
 {
-    // url https://gotyourstyle.com/product-category/clothings/hoodie/nfl-merry-christmas-collection-2024/?fbclid=IwY2xjawG1EY5leHRuA2FlbQIxMAABHQIht84DYiJYqO5vO_-yXUDiyX5ekyhPn09hM-8Hbq4NSVa7ofMwz0hqHA_aem_WVI6C6EpsIEraQVIndqZ_A
-    public class ProductCalatlogRadio : WebPageBase
+    // url https://temose.com/category/recv5tvbvc
+    public class ProductCalatlogRadioHunting : WebPageBase
     {
-        private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'woocommerce-image__wrapper')]//a"));
+        private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[@class='text-center rounded mb-7']//a"));
 
         private IWebElement _btnClosePopup => FindElement(By.XPath("//button[contains(@class,'klaviyo-close-form')]"));
 
-        private IWebElement _productTitle => FindElement(By.XPath("//main[contains(@class,'site-main')]//h1[contains(@class,'product_title')]"));
+        private IWebElement _productTitle => FindElement(By.XPath("//*[@id='container']/div/div/div[3]/div/div/div/div[2]/h2[1]"));
 
         private IWebElement _productDescription => FindElement(By.XPath(@"//*[@id='tab-description']"));
         private ReadOnlyCollection<IWebElement> _productPriceRange => FindElements(By.XPath("//main[contains(@class,'site-main')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')]"));
@@ -25,10 +25,10 @@ namespace AutomationTestingSample.Testing.Pages
         private ReadOnlyCollection<IWebElement> _productButtomAttribute1 => FindElements(By.XPath("//main[contains(@class,'site-main')]//div[contains(@data-validation,'Choose Hoodie Type')]//label"));
         private ReadOnlyCollection<IWebElement> _productButtomAttribute2 => FindElements(By.XPath("//main[contains(@class,'site-main')]//div[contains(@data-validation,'Choose Your Size')]//label"));
 
-        private By _productMainImageBy => By.XPath("(//main[contains(@class,'site-main')]//div[contains(@class,'woocommerce-product-gallery__wrapper')]//img)[1]");
-        private By _productImagesBy => By.XPath("//main[contains(@class,'site-main')]//ol[contains(@class,'flex-control-thumbs')]//img");
+        private By _productMainImageBy => By.XPath("//*[@id='container']/div/div/div[3]/div/div/div/div[2]/div[2]/a[1]/div/img");
+        private By _productImagesBy => By.XPath("//*[@id='container']/div/div/div[3]/div/div/div/div[2]/div[2]/a[2]/div/img");
 
-        public ProductCalatlogRadio(IWebDriver driver) : base(driver)
+        public ProductCalatlogRadioHunting(IWebDriver driver) : base(driver)
         {
 
         }
@@ -37,7 +37,12 @@ namespace AutomationTestingSample.Testing.Pages
         {
             //_btnClosePopup.Click();
 
-            //if (_singleProductLinks.Count == 0) return;
+            if (_singleProductLinks.Count == 0) return;
+
+            foreach (var item in _singleProductLinks)
+            {
+                Console.WriteLine(item.GetAttribute("href"));
+            }
 
             var productMetadata = new List<ProductMetadata>();
 
@@ -47,44 +52,39 @@ namespace AutomationTestingSample.Testing.Pages
 
             var links = new List<string>()
             {
-                 "https://gotyourstyle.com/product/pittsburgh-steelers-nfl-x-chill-guy-2024-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/minnesota-vikings-2024-merry-christmas-premium-new-limited-pullover-hoodie/",
-                "https://gotyourstyle.com/product/green-bay-packers-nfl-chill-guy-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/detroit-lions-2024-merry-christmas-premium-new-limited-pullover-hoodie/",
-                "https://gotyourstyle.com/product/cincinnati-bengals-2024-merry-christmas-premium-new-limited-pullover-hoodie/",
-                "https://gotyourstyle.com/product/washington-commanders-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/tennessee-titans-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/tampa-bay-buccaneers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/seattle-seahawks-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/san-francisco-49ers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/philadelphia-eagles-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-york-jets-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-york-giants-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-orleans-saints-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/new-england-patriots-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/miami-dolphins-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/los-angeles-rams-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/los-angeles-chargers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/las-vegas-raiders-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/jacksonville-jaguars-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/indianapolis-colts-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/houston-texans-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/green-bay-packers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/detroit-lions-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/denver-broncos-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/dallas-cowboys-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/cleveland-browns-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/cincinnati-bengals-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/chicago-bears-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/carolina-panthers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/buffalo-bills-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/baltimore-ravens-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/atlanta-falcons-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/arizona-cardinals-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/pittsburgh-steelers-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/minnesota-vikings-2024-christmas-limited-edition-hoodie/",
-                "https://gotyourstyle.com/product/kansas-city-chiefs-2024-christmas-limited-edition-hoodie/"
-
+                "https://temose.com/campaign/p546bv",
+                "https://temose.com/campaign/phil35g6v",
+                "https://temose.com/campaign/4rfgf5g",
+                "https://temose.com/campaign/4gfg56g",
+                "https://temose.com/campaign/buff45fg5",
+                "https://temose.com/campaign/cle45ct6fbg",
+                "https://temose.com/campaign/la4fgcvyt",
+                "https://temose.com/campaign/ka564vbvb",
+                "https://temose.com/campaign/ne45gvcg",
+                "https://temose.com/campaign/435cgcgbb",
+                "https://temose.com/campaign/te4gfgfg",
+                "https://temose.com/campaign/lo45gfg",
+                "https://temose.com/campaign/ne3vcvc",
+                "https://temose.com/campaign/4ggfgfg",
+                "https://temose.com/campaign/spo6c5v6",
+                //"https://temose.com/campaign/tenn4dfg",
+                "https://temose.com/campaign/jac4fgh6",
+                "https://temose.com/campaign/ind45ghgy",
+                "https://temose.com/campaign/3cv45vv",
+                "https://temose.com/campaign/atla345dffg",
+                "https://temose.com/campaign/ar3vc4rtvb",
+                "https://temose.com/campaign/cin56gfvg",
+                "https://temose.com/campaign/mi456bvb",
+                "https://temose.com/campaign/chi4vcbvbv",
+                "https://temose.com/campaign/new4fgyb",
+                "https://temose.com/campaign/ta435cgv65t",
+                "https://temose.com/campaign/sa56gyb",
+                "https://temose.com/campaign/w456fg67",
+                "https://temose.com/campaign/ho6fghy",
+                "https://temose.com/campaign/ba4gf6",
+                "https://temose.com/campaign/mi56vbvh",
+                "https://temose.com/campaign/de4gfg6",
+                "https://temose.com/campaign/dvrebvvbv"
             };
 
             foreach (var link in links)
@@ -136,12 +136,7 @@ namespace AutomationTestingSample.Testing.Pages
 
             var _productButtomAttribute1 = new Dictionary<string, Tuple<double, double>>()
             {
-                {"Regular Hoodie", new Tuple<double, double>(51.95,40.95) },
-                {"Zipper Hoodie", new Tuple<double, double>(54.95,43.95) },
-                {"Fleece Hoodie", new Tuple<double, double>(61.95,50.95) },
-                {"Zipper Fleece Hoodie", new Tuple<double, double>(64.95,55.95) },
-                {"Mask Hoodie", new Tuple<double, double>(53.95,42.95) },
-                {"Jogger", new Tuple<double, double>(41.95,30.95) },
+                {"3D Unisex Hoodie", new Tuple<double, double>(54.04,46.99) },
             };
 
             foreach (var item in _productButtomAttribute1)
@@ -156,12 +151,7 @@ namespace AutomationTestingSample.Testing.Pages
         {
             return
             [
-                "Regular Hoodie",
-                "Zipper Hoodie",
-                "Fleece Hoodie",
-                "Zipper Fleece Hoodie",
-                "Mask Hoodie",
-                "Jogger"
+                "3D Unisex Hoodie",
             ];
         }
 
@@ -182,12 +172,20 @@ namespace AutomationTestingSample.Testing.Pages
 
         private List<string> GetImages()
         {
-            var galleryImages = FindElements(_productImagesBy);
-            if (galleryImages.Count > 0)
+            try
             {
-                return galleryImages.Select(x => x.GetAttribute("src").Replace("-100x100", "")).ToList();
+                var galleryImages = FindElement(_productImagesBy);
+                //if (galleryImages.Count > 0)
+                //{
+                //    return galleryImages.Select(x => x.GetAttribute("src")).ToList();
+                //}
+                return [FindElement(_productMainImageBy).GetAttribute("src"), galleryImages.GetAttribute("src")];
             }
-            return [FindElement(_productMainImageBy).GetAttribute("src")];
+            catch 
+            {
+                return [FindElement(_productMainImageBy).GetAttribute("src")];
+            }
+            
         }
 
         private void ExportExel(List<ProductMetadata> data)
@@ -205,13 +203,15 @@ namespace AutomationTestingSample.Testing.Pages
 
             int skuParentNumber = 0;
 
+            int imgint = 1;
+
             foreach (var item in data)
             {
                 try
                 {
                     skuParentNumber++;
 
-                    var sku = $"{ProductConstants.SKU}{skuParentNumber}";
+                    var sku = $"{ProductConstants.SKU}-{skuParentNumber}";
 
                     #region main product
 
@@ -246,7 +246,18 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Categories].Value = ProductConstants.Categories;
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Tags].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.ShippingClass].Value = "";
-                    workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = string.Join(',', item.Images);
+
+                    if(item.Images.Count == 1)
+                    {
+                        workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = string.Join(',', item.Images);
+                    }
+                    else
+                    {
+                        workSheet.Cells[rowIndex, (int)WooExcelColumn.Images].Value = $"https://raw.githubusercontent.com/nampham30698/automation-testing-sample/refs/heads/nampv/woocommerce/images/{imgint}.png,https://raw.githubusercontent.com/nampham30698/automation-testing-sample/refs/heads/nampv/woocommerce/images/{imgint+1}.png";
+                    }
+
+                    imgint += 2;
+
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.DownloadLimit].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.DownloadExpiryDays].Value = "";
                     workSheet.Cells[rowIndex, (int)WooExcelColumn.Parent].Value = "";
@@ -367,8 +378,8 @@ namespace AutomationTestingSample.Testing.Pages
                     workSheet.Cells[rowChild, (int)WooExcelColumn.AllowCustomerReviews].Value = 0;
                     workSheet.Cells[rowChild, (int)WooExcelColumn.PurchaseNote].Value = "";
 
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.SalePrice].Value = "22.95";
-                    workSheet.Cells[rowChild, (int)WooExcelColumn.RegularPrice].Value = "33.95";
+                    workSheet.Cells[rowChild, (int)WooExcelColumn.SalePrice].Value = "35.00";
+                    workSheet.Cells[rowChild, (int)WooExcelColumn.RegularPrice].Value = "40.25";
 
                     workSheet.Cells[rowChild, (int)WooExcelColumn.Categories].Value = "";
                     workSheet.Cells[rowChild, (int)WooExcelColumn.Tags].Value = "";
@@ -500,42 +511,26 @@ namespace AutomationTestingSample.Testing.Pages
             public const string Variable = "variable";
             public const string variation = "variation";
 
-            public const string Description = @"<b>KEY FEATURES:</b>
-<ul>
- 	<li aria-level=""1"">Occasion: casual outfit for everyday use. Suit for school, home, parties, uniforms, weddings, sports, outdoor activities, and camping, to name a few.</li>
- 	<li aria-level=""1"">It is suitable for special occasions such as Christmas, birthdays, festivals, and housewarming presents.</li>
+            public const string Description = @"<div class=""d-flex justify-content-between mt-7"">
+<h2 class=""font-weight-bolder text-dark"">Product detail</h2>
+</div>
+<div class=""line-height-xl"">
+<div>
+<ul class=""mb-0"">
+ 	<li>Materials: Polyester</li>
+ 	<li>Printing technique: Sublimination</li>
+ 	<li>Our hats are available in a variety of colors and are suitable for both men and women. They provide excellent sun protection and are ideal for any outdoor activity! With adjustable snap back construction (one size fits all), everyone in your family can now wear these hats!</li>
+ 	<li>Designed by Fans</li>
 </ul>
-<b>INFORMATION:</b>
-<ul>
- 	<li aria-level=""1"">Skin-friendly fabrics include white Arctic Velvet and Polyester, a soft, toasty cloth that may keep you warm on frigid days.</li>
- 	<li aria-level=""1"">To keep you warm, the shirt has a strap and a hood.</li>
- 	<li aria-level=""1"">The hoodie has a pocket on the front that may be utilized for extra storage or warmth.</li>
-</ul>
-<strong>PRINTS:</strong> Dye-sublimation printing
+</div>
+</div>
+<div class=""line-height-xl"">* Caution: The design on the apparel can be printed smaller compared to what is shown on this screen.</div>
+<div class=""line-height-xl"">* Caution: Please allow 1-3cm( 0.39-1.18 inch) differences due to manual error measurement, thank you for your understanding.</div>";
 
-<strong>WASHABLE:</strong> Machine wash.
+            public const string SKU = "hunting-collection-2024";
+            public const string Categories = "Hunting Collection 2024";
 
-<strong>Pittsburgh Steelers NFL x Chill Guy 2024 Limited Edition Hoodie: Laid-Back Steelers Style with a Meme Twist</strong>
-
-The <strong>Pittsburgh Steelers NFL x Chill Guy 2024 Limited Edition Hoodie</strong> is designed for Steelers fans who appreciate a more relaxed and humorous approach to fan apparel. This hoodie combines the team’s branding with the popular “Chill Guy” internet meme, creating a fun and casual piece of clothing. While the image also shows sweatpants and a cap, the primary focus is the hoodie.
-
-<strong>Design Details that Combine Steelers Spirit and “Chill Guy” Cool</strong>
-<ul>
- 	<li><strong>Black Base:</strong> The hoodie features a black base, consistent with the Pittsburgh Steelers’ primary color.</li>
- 	<li><strong>“Chill Guy” Character in Steelers Gear (Front and Back):</strong> The front and back of the hoodie prominently display the “Chill Guy” meme character dressed in Steelers attire, including a team jersey. On the front, the text “Just a chill guy” accompanies the character.</li>
- 	<li><strong>“Steelers” Text (Back):</strong> “Steelers” is prominently displayed on the back below the Chill Guy character.</li>
- 	<li><strong>All-Over Print Option (Front):</strong> The front of the hoodie has an all-over print option featuring the Steelers logo and name repeated, as shown in one of the images. This provides an alternative design for those who prefer a busier look.</li>
- 	<li><strong>NFL Logo and Steelers Logo (Sleeves):</strong> Both the NFL logo and the Steelers logo are featured on the sleeves.</li>
- 	<li><strong>Nike Swoosh (Sleeve):</strong> A small Nike swoosh appears on one sleeve.</li>
-</ul>
-<strong>A Hoodie for Fans Who Embrace Internet Humor</strong>
-
-The <strong>Pittsburgh Steelers NFL x Chill Guy 2024 Limited Edition Hoodie</strong> targets fans who are familiar with internet culture and appreciate the humor of the “Chill Guy” meme. By incorporating this meme, the hoodie offers a more lighthearted and contemporary way to express Steelers fandom. This hoodie is a great choice for fans who want to show their team spirit in a relaxed and fun style. The accompanying sweatpants and cap, featuring similar design elements, allow for a complete “Chill Guy” Steelers ensemble.";
-
-            public const string SKU = "nfl-fishing-collection-2024";
-            public const string Categories = "NFL Fishing Collection 2024";
-
-            public const string Attribute1Name = "Hoodie Type";
+            public const string Attribute1Name = "Style";
             public const string Attribute2Name = "Size";
 
             public static VariationType VariationType = VariationType.Buttom;

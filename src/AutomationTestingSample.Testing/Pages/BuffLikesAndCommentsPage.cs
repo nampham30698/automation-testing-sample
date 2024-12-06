@@ -55,11 +55,24 @@ namespace AutomationTestingSample.Testing.Pages
 
         private readonly List<LikePostOption> _commentsData = 
         [
-            new(){PostId = "520776067605154", Quality = 12, Service = ServicesConstants.Sv1 },
-new(){PostId = "891150566558473", Quality = 12, Service = ServicesConstants.Sv1 },
-new(){PostId = "891153496558180", Quality = 12, Service = ServicesConstants.Sv1 },
-new(){PostId = "891157473224449", Quality = 12, Service = ServicesConstants.Sv1 },
-new(){PostId = "1380095059795342", Quality = 12, Service = ServicesConstants.Sv1 },
+             new(){PostId = "1105186230602198" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1279199653211943" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "3466176840342628" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "566130932680418"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1223877022030702" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "575361315084258"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1237506710863240" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1098307835219198" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "465901132771132"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1153453742864493" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "444782242009722"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "8782369408483459" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1102842228006189" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "890686319507254"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "503014379433673"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "577808677967936"  , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "2252422141794134" , Quality = 10, Service = ServicesConstants.Sv2 },
+             new(){PostId = "1280408406629216" , Quality = 10, Service = ServicesConstants.Sv2 },
         ]; 
             
 
@@ -89,7 +102,6 @@ new(){PostId = "1380095059795342", Quality = 12, Service = ServicesConstants.Sv1
 
             EnterCommentsService();
         }
-
 
         public void Login()
         {
@@ -139,18 +151,16 @@ new(){PostId = "1380095059795342", Quality = 12, Service = ServicesConstants.Sv1
                     var selectOption = FindElement(By.XPath(string.Format(_seviceString, item.Service)));
                     selectOption.Click();
 
-                    _textArea.EnterText(@"Tranh bao nhiêu vậy bạn
-Báo giá kích thước tranh
+                    _textArea.EnterText(@"xin giá sỉ
 ..
-bn vậy
-Giá tranh sao shop
+Bn vậy shop
+15 chiếc giá sao
 ib gia
-Ngang 60 giá bao nhiêu
-xin giá shop
-Tranh này bao nhiêu
-Các mẫu tranh đẹp nhất
-check tin nhan
-ib mình vài mẫu");
+Xin giá shop
+ib ạ
+bn ạ
+check ib
+mẫu này bao nhiêu");
 
                     _inputQuality.EnterText(item.Quality.ToString());
 
