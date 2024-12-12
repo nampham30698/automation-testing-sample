@@ -15,13 +15,14 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AutomationTestingSample.Testing.Pages
 {
-    //https://trendyshopunisex.com/
-    public class ProductCalatlog : WebPageBase
+    //https://sportsboutiques.com/collections/nhl-men-s-thickened-corduroy-jacket
+    //https://sportsboutiques.com/collections/premier-league-men-s-thickened-zipper-hoodies
+    public class ProductCalatlog1 : WebPageBase
     {
-        private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'woocommerce-image__wrapper')]//a"));
+        private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'collection-product-wrap--add-cart')]//a"));
         private IWebElement _btnClosePopup => FindElement(By.XPath("//button[contains(@class,'klaviyo-close-form')]"));
 
-        private IWebElement _productTitle => FindElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//h1[contains(@class,'product_title')]"));
+        private IWebElement _productTitle => FindElement(By.XPath("//*[@id='detail-contents']/h1"));
         //private IWebElement _productDescription => FindElement(By.XPath("//div[contains(@class,'woocommerce-Tabs-panel')]//div[contains(@class,'vtab_container')]"));
         private IWebElement _productDescription => FindElement(By.XPath(@"//*[@id='tab-description']"));
         private ReadOnlyCollection<IWebElement> _productPriceRange => FindElements(By.XPath("//div[contains(@class,'product-details-wrapper')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')]"));
@@ -29,13 +30,14 @@ namespace AutomationTestingSample.Testing.Pages
         private IWebElement _productRegularPrice => FindElement(By.XPath("(//div[contains(@class,'product-details-wrapper')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[1]"));
         private IWebElement _productSalePrice => FindElement(By.XPath("(//div[contains(@class,'product-details-wrapper')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[2]"));
 
-        private By _productVariationRegularPriceBy => By.XPath("(//div[contains(@class,'product-details-wrapper')]//span[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[1]");
+        private By _productVariationRegularPriceBy => By.XPath("//*[@id='detail-contents']/div[1]/p/span[2]/del");
 
-        private By _productVariationSalePriceBy => By.XPath("(//div[contains(@class,'product-details-wrapper')]//span[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[2]");
+        private By _productVariationSalePriceBy => By.XPath("//*[@id='detail-contents']/div[1]/p/span[1]");
 
         // buttom type
-        private ReadOnlyCollection<IWebElement> _productButtomAttribute1 => FindElements(By.XPath("//div[contains(@class,'product-details-wrapper')]//ul[@data-attribute='attribute_style']//button"));
-        private ReadOnlyCollection<IWebElement> _productButtomAttribute2 => FindElements(By.XPath("//div[contains(@class,'product-details-wrapper')]//ul[@data-attribute='attribute_size']//button"));
+        private IWebElement _productButtomAttribute1Text => FindElement(By.XPath("(//div[contains(@class,'product__variant-label')])[1]//label"));
+        private ReadOnlyCollection<IWebElement> _productButtomAttribute1 => FindElements(By.XPath("(//div[contains(@class,'product__variant-button')])[1]//button"));
+        private ReadOnlyCollection<IWebElement> _productButtomAttribute2 => FindElements(By.XPath("(//div[contains(@class,'product__variant-button')])[2]//button"));
 
         // select options
         //private SelectElement _productSelectAttribute1 => FindSelectElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//select[@data-attribute_name='attribute_your-style']"));
@@ -45,40 +47,37 @@ namespace AutomationTestingSample.Testing.Pages
         private SelectElement _productSelectAttribute2 => FindSelectElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//select[@data-attribute_name='attribute_pa_size']"));
 
         private By _productMainImageBy => By.XPath("(//div[contains(@class,'product-details-wrapper')]//div[contains(@class,'woocommerce-product-gallery__wrapper')]//img)[1]");
-        private By _productImagesBy => By.XPath("//div[contains(@class,'product-details-wrapper')]//ol[contains(@class,'flex-control-thumbs')]//img");
+        private By _productImagesBy => By.XPath("//*[@id='product-image-carousel']//img");
 
-        public ProductCalatlog(IWebDriver driver) : base(driver)
+        public ProductCalatlog1(IWebDriver driver) : base(driver)
         {
 
         }
 
         public void GetProductUrls()
         {
-            _btnClosePopup.Click();
+            //_btnClosePopup.Click();
 
-            //if (_singleProductLinks.Count == 0) return;
+            Thread.Sleep(5000);
+
+            //MoveToElement(FindElement(By.XPath("//*[@id='86H']/div/div/div[2]/div/div[2]/div/ul/li[5]/a")));
+
+            //Thread.Sleep(3000);
+
+            //MoveToElement(FindElement(By.XPath("//*[@id='86H']/div/div/div[2]/div/div[2]/div/ul/li[5]/a")));
+
+            if (_singleProductLinks.Count == 0) return;
 
             var productMetadata = new List<ProductMetadata>();
 
             //productMetadata.Add(GetProductInfo("https://championssport.store/product/limited-edition-pittsburgh-penguins-grateful-dead-night-hoodie-set-v3nt17112416id10ds11/"));
 
-            //var links = _singleProductLinks.Select(x => x.GetAttribute("href")).ToList();
+            var links = _singleProductLinks.Select(x => x.GetAttribute("href")).ToList();
 
-            var links = new List<string>()
-            {
-                "https://trendyshopunisex.com/product/green-bay-packers-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/hoodie-copy-copy-2/",
-"https://trendyshopunisex.com/product/philadelphia-eagles-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/detroit-lions-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/dallas-cowboys-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/tampa-bay-buccaneers-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/seattle-seahawks-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/buffalo-bills-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/cleveland-browns-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/minnesota-vikings-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/houston-texans-native-american-heritage-hoodie/",
-"https://trendyshopunisex.com/product/kansas-city-chiefs-native-american-heritage-hoodie/"
-            };
+            //var links = new List<string>()
+            //{
+            //    "https://sportsboutiques.com/collections/nhl-men-s-thickened-corduroy-jacket/products/vitpl130?variant=1000015623838733"
+            //};
 
             foreach (var link in links)
             {
@@ -99,6 +98,8 @@ namespace AutomationTestingSample.Testing.Pages
                 NavigateToUrl(url);
                 Thread.Sleep(1000);
 
+                var attribute1 = GetAttribute1Values();
+
                 var data = new ProductMetadata()
                 {
                     Url = url,
@@ -106,10 +107,10 @@ namespace AutomationTestingSample.Testing.Pages
                     //Description = _productDescription.GetAttribute("innerHTML").Trim(),
                     //RegularPrice = Parser.ParseDoube(_productRegularPrice.Text),
                     //SalePrice = Parser.ParseDoube(_productSalePrice.Text),
-                    Attribute1 = GetAttribute1Values(),
+                    Attribute1 = attribute1,
                     Attribute2 = GetAttribute2Values(),
                     Images = GetImages(),
-                    PriceMapping = GetPriceMapping(),
+                    PriceMapping = GetPriceMapping(attribute1),
                 };
 
                 
@@ -123,57 +124,16 @@ namespace AutomationTestingSample.Testing.Pages
             }
         }
 
-        private Dictionary<string, Tuple<double, double>> GetPriceMapping()
+        private Dictionary<string, Tuple<double, double>> GetPriceMapping(List<string> attribute1 = null)
         {
+            var regularPrice = double.Parse(FindElement(_productVariationRegularPriceBy).Text.Replace(".","").Replace("₫", "")) * 0.0000394145;
+            var salePrice = double.Parse(FindElement(_productVariationSalePriceBy).Text.Replace(".", "").Replace("₫", "")) * 0.0000394145;
+
             var priceMapping = new Dictionary<string, Tuple<double, double>>();
 
-            if (ProductConstants.VariationType == VariationType.Buttom)
+            foreach (var item in attribute1)
             {
-                var firstSize = _productButtomAttribute2.First();
-
-                var sizeClasses = firstSize.GetAttribute("class");
-
-                if (!sizeClasses.Contains("selected", StringComparison.OrdinalIgnoreCase))
-                {
-                    firstSize.Click();
-                }
-
-                foreach (var style in _productButtomAttribute1)
-                {
-                    //if (style.Text.Trim().Equals("Cap", StringComparison.OrdinalIgnoreCase)) continue;
-                    Thread.Sleep(200);
-
-                    var styleClasses = style.GetAttribute("class");
-                    if (!styleClasses.Contains("selected", StringComparison.OrdinalIgnoreCase))
-                    {
-                        style.Click();
-                    }
-
-                    Thread.Sleep(500);
-                    var regularPrice = Parser.ParseDoube(FindElement(_productVariationRegularPriceBy).Text.Replace("$", ""));
-                    var salePrice = Parser.ParseDoube(FindElement(_productVariationSalePriceBy).Text.Replace("$", ""));
-
-                    priceMapping.Add(style.Text.Trim().ToLower(), new Tuple<double, double>(regularPrice, salePrice));
-                }
-
-            }
-            else
-            {
-                _productSelectAttribute2.SelectByIndex(2);
-
-                var selectAttribute2Indexes = _productSelectAttribute1.Options.Skip(1).Select((element, index) => index + 1).ToList();
-
-                foreach (var index in selectAttribute2Indexes)
-                {
-                    Thread.Sleep(200);
-                    _productSelectAttribute1.SelectByIndex(index);
-                    Thread.Sleep(500);
-
-                    var regularPrice = Parser.ParseDoube(FindElement(_productVariationRegularPriceBy).Text.Replace("$", ""));
-                    var salePrice = Parser.ParseDoube(FindElement(_productVariationSalePriceBy).Text.Replace("$", ""));
-
-                    priceMapping.Add(_productSelectAttribute1.SelectedOption.Text.Trim().ToLower(), new Tuple<double, double>(regularPrice, salePrice));
-                }
+                priceMapping.Add(item.Trim().ToLower(), new Tuple<double, double>(Math.Round(regularPrice,2), Math.Round(salePrice,2)));
             }
 
             return priceMapping;
@@ -181,31 +141,12 @@ namespace AutomationTestingSample.Testing.Pages
 
         private List<string> GetAttribute1Values()
         {
-            if(ProductConstants.VariationType == VariationType.Buttom)
-            {
-                return _productButtomAttribute1.Select(x => x.Text.Trim()).ToList();
-                //return _productButtomAttribute1.Select(x => x.Text.Trim()).Where(x => !x.Equals("Cap", StringComparison.OrdinalIgnoreCase)).ToList();
-            }
-            else
-            {
-                return _productSelectAttribute1.Options.Skip(1).Select(x => x.Text.Trim()).Where(x => !x.Equals("cap", StringComparison.OrdinalIgnoreCase) && !x.Contains("Snapback Cap", StringComparison.OrdinalIgnoreCase)).ToList();
-            }
+            return _productButtomAttribute1.Select(x => x.Text).ToList();
         }
 
         private List<string> GetAttribute2Values()
         {
-            if (ProductConstants.VariationType == VariationType.Buttom)
-            {
-                return _productButtomAttribute2.Select(x => x.Text.Trim()).ToList();
-
-                //return _productButtomAttribute2.Select(x => x.Text.Trim()).Where(x => !x.Contains("Cap one size", StringComparison.OrdinalIgnoreCase) &&
-                //!x.Contains("One Size Cap", StringComparison.OrdinalIgnoreCase) && !x.Contains("Caps one size", StringComparison.OrdinalIgnoreCase) &&
-                //!x.Contains("Kid", StringComparison.OrdinalIgnoreCase)).ToList();
-            }
-            else
-            {
-                return _productSelectAttribute2.Options.Skip(1).Select(x => x.Text).Where(x => !x.Contains("Universal fit", StringComparison.OrdinalIgnoreCase)).ToList();
-            }
+            return _productButtomAttribute2.Select(x => x.Text).ToList();
         }
 
         private List<string> GetImages()
@@ -213,9 +154,9 @@ namespace AutomationTestingSample.Testing.Pages
             var galleryImages = FindElements(_productImagesBy);
             if (galleryImages.Count > 0)
             {
-                return galleryImages.Select(x => x.GetAttribute("src")).ToList();
+                return galleryImages.Select(x => x.GetAttribute("data-zoom")).ToList();
             }
-            return [FindElement(_productMainImageBy).GetAttribute("src")];
+            return [FindElement(_productMainImageBy).GetAttribute("data-zoom")];
         }
 
         private void ExportExel(List<ProductMetadata> data)
@@ -528,64 +469,13 @@ namespace AutomationTestingSample.Testing.Pages
             public const string Variable = "variable";
             public const string variation = "variation";
 
-            public const string Description = @"<strong>HOODIE</strong>
+            public const string Description = @"Stay warm and stylish with this colorful fleece-lined zip-up hoodie. The exterior is crafted from a soft, durable fabric, while the interior is lined with fleece, providing exceptional warmth and comfort. The hoodie features a full zip for easy dressing and an adjustable drawstring hood, allowing for a custom fit. Ribbed cuffs and hem ensure a snug fit, allowing for layering on colder days.
+This hoodie is perfect for anyone looking for a combination of function, comfort and casual fashion during the colder months.";
 
-This comfortable unisex pullover hoodie is thermal hoodie that is perfect to keep warm. The comfortable and unisex cut is suitable for both men and women. The unique pattern of high quality print makes you landscape in the crowd.
-<ul>
- 	<li>Round neck design. The classic round neck with hood.</li>
- 	<li>Great material. The polyester material keeps you warm in winter.</li>
- 	<li>Regular fit. Loose-fitting design maximizes comfort.</li>
- 	<li>Soft sleeve cuff and hem. Elastic and soft sleeve cuffs for fashion and comfort.</li>
- 	<li>High quality print. Make unique pattern with high quality print.</li>
-</ul>
-<div class=""vtab_container""><strong>JOOGER</strong></div>
-<div>
-<div class=""size-HHart-description"">
-<div class=""vtab-wrap"">
-<div class="""">
-<div class="""">
-<div class="""">
-<div class="""">
-<div class="""">
-<div class="""">
-<div class="""">
-<ul>
- 	<li>Round neck design. The classic round neck with hood.</li>
- 	<li>Great material. The polyester material keeps you warm in winter.</li>
- 	<li>Regular fit. Loose-fitting design maximizes comfort.</li>
- 	<li>Soft sleeve cuff and hem. Elastic and soft sleeve cuffs for fashion and comfort.</li>
- 	<li>High quality print. Make unique pattern with high quality print</li>
-</ul>
-<div class=""is-uppercase pointer flex items-center""><strong><span class=""toggle_heading flex-grow"">DESCRIPTION CAP</span></strong></div>
-<div class=""toggle_content mt12"" data-old-padding-top="""" data-old-padding-bottom="""" data-old-overflow="""">
-<div class=""product__description-html"">
-<ul>
- 	<li>Unisex</li>
- 	<li>Faith over fear hat products made by: Prideearthdesign?.</li>
- 	<li>Material: Polyester and cotton.</li>
- 	<li>Size: Adjustable cap circumference 57-62cm.</li>
- 	<li>Printing teHHnology: Thermal transfer process, front printing.</li>
- 	<li>High stature hat to give you the uptown street fashion and style.</li>
- 	<li>Easy to adjust: adjustable knot design at the back of the hat to fit all head sizes.</li>
- 	<li>Harden cap crown structure at the cap front uplifts the whole cap design, making the cap undeformable.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>";
+            public const string SKU = "mens-thickened-zipper-hoodies";
+            public const string Categories = "Men’s Thickened Zipper Hoodies";
 
-            public const string SKU = "nfl-native-american-heritage";
-            public const string Categories = "NFL Native American Heritage";
-
-            public const string Attribute1Name = "Style";
+            public const string Attribute1Name = "Color";
             public const string Attribute2Name = "Size";
 
             public static VariationType VariationType = VariationType.Buttom;
