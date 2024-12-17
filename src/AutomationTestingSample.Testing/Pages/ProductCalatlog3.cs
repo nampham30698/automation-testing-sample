@@ -8,46 +8,46 @@ using System.Collections.ObjectModel;
 
 namespace AutomationTestingSample.Testing.Pages
 {
-    //https://trendyshopunisex.com/
-    public class ProductCalatlog : WebPageBase
+    //https://coolshop66.com/collections/premier-league-football
+    public class ProductCalatlog3 : WebPageBase
     {
-        private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'woocommerce-image__wrapper')]//a"));
+        private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'product-card--assets')]//a"));
         private IWebElement _btnClosePopup => FindElement(By.XPath("//button[contains(@class,'klaviyo-close-form')]"));
 
-        private IWebElement _productTitle => FindElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//h1[contains(@class,'product_title')]"));
+        private IWebElement _productTitle => FindElement(By.XPath("//div[contains(@class,'block-heading')]//h4//span//span"));
         //private IWebElement _productDescription => FindElement(By.XPath("//div[contains(@class,'woocommerce-Tabs-panel')]//div[contains(@class,'vtab_container')]"));
         private IWebElement _productDescription => FindElement(By.XPath(@"//*[@id='tab-description']"));
         private ReadOnlyCollection<IWebElement> _productPriceRange => FindElements(By.XPath("//div[contains(@class,'product-details-wrapper')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')]"));
 
         private IWebElement _productRegularPrice => FindElement(By.XPath("(//div[contains(@class,'product-details-wrapper')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[1]"));
-        private IWebElement _productSalePrice => FindElement(By.XPath("(//div[contains(@class,'product-details-wrapper')]//p[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[2]"));
+        private IWebElement _productSalePrice => FindElement(By.XPath("//div[contains(@class,'product__price')]//span"));
 
-        private By _productVariationRegularPriceBy => By.XPath("(//div[contains(@class,'product-details-wrapper')]//span[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[1]");
+        private By _productVariationRegularPriceBy => By.XPath("(//p[contains(@class,'price product-page-price')]//bdi)[1]");
 
-        private By _productVariationSalePriceBy => By.XPath("(//div[contains(@class,'product-details-wrapper')]//span[contains(@class,'price')]//span[contains(@class,'woocommerce-Price-amount')])[2]");
+        private By _productVariationSalePriceBy => By.XPath("//div[contains(@class,'product__price')]//span");
 
         // buttom type
-        private ReadOnlyCollection<IWebElement> _productButtomAttribute1 => FindElements(By.XPath("(//div[contains(@class,'product-details-wrapper')]//ul[contains(@class,'cgkit-attribute-swatches')])[1]//button"));
-        private ReadOnlyCollection<IWebElement> _productButtomAttribute2 => FindElements(By.XPath("(//div[contains(@class,'product-details-wrapper')]//ul[contains(@class,'cgkit-attribute-swatches')])[2]//button"));
+        private IWebElement _productButtomAttribute1Text => FindElement(By.XPath("//div[contains(@class,'variants-selector')]//p[contains(@class,'variants-selector__label')]"));
+        private ReadOnlyCollection<IWebElement> _productButtomAttribute1 => FindElements(By.XPath("(//div[contains(@class,'variants-selector')]//div[contains(@class,'option-item-wrap')])[1]//div"));
+        private ReadOnlyCollection<IWebElement> _productButtomAttribute2 => FindElements(By.XPath("(//div[contains(@class,'variants-selector')]//div[contains(@class,'option-item-wrap')])[2]//div"));
 
-        // select options
-        //private SelectElement _productSelectAttribute1 => FindSelectElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//select[@data-attribute_name='attribute_your-style']"));
-        //private SelectElement _productSelectAttribute2 => FindSelectElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//select[@data-attribute_name='attribute_size']"));
-        
-        private SelectElement _productSelectAttribute1 => FindSelectElement(By.XPath("(//div[contains(@class,'product-details-wrapper')]//select[@data-show_option_none='yes'])[1]"));
-        private SelectElement _productSelectAttribute2 => FindSelectElement(By.XPath("(//div[contains(@class,'product-details-wrapper')]//select[@data-show_option_none='yes'])[2]"));
+
+        private SelectElement _productSelectAttribute1 => FindSelectElement(By.XPath("//select[@data-attribute_name='attribute_size']"));
+        private SelectElement _productSelectAttribute2 => FindSelectElement(By.XPath("//div[contains(@class,'product-details-wrapper')]//select[@data-attribute_name='attribute_pa_size']"));
 
         private By _productMainImageBy => By.XPath("(//div[contains(@class,'product-details-wrapper')]//div[contains(@class,'woocommerce-product-gallery__wrapper')]//img)[1]");
-        private By _productImagesBy => By.XPath("//div[contains(@class,'product-details-wrapper')]//ol[contains(@class,'flex-control-thumbs')]//img");
+        private By _productImagesBy => By.XPath("//div[contains(@class,'VueCarousel-inner')]//div[contains(@class,'media-gallery-wrapper')]//img");
 
-        public ProductCalatlog(IWebDriver driver) : base(driver)
+        public ProductCalatlog3(IWebDriver driver) : base(driver)
         {
 
         }
 
         public void GetProductUrls()
         {
-            _btnClosePopup.Click();
+            //_btnClosePopup.Click();
+
+            Thread.Sleep(5000);
 
             if (_singleProductLinks.Count == 0) return;
 
@@ -126,25 +126,27 @@ namespace AutomationTestingSample.Testing.Pages
 
                 var sizeClasses = firstSize.GetAttribute("class");
 
-                if (!sizeClasses.Contains("selected", StringComparison.OrdinalIgnoreCase))
+                if (!sizeClasses.Contains("active", StringComparison.OrdinalIgnoreCase))
                 {
                     firstSize.Click();
                 }
 
                 foreach (var style in _productButtomAttribute1)
                 {
-                    //if (style.Text.Trim().Equals("Cap", StringComparison.OrdinalIgnoreCase)) continue;
+                    if (style.Text.Trim().Contains("Youth", StringComparison.OrdinalIgnoreCase)) continue;
                     Thread.Sleep(200);
 
                     var styleClasses = style.GetAttribute("class");
-                    if (!styleClasses.Contains("selected", StringComparison.OrdinalIgnoreCase))
+                    if (!styleClasses.Contains("active", StringComparison.OrdinalIgnoreCase))
                     {
                         style.Click();
                     }
 
                     Thread.Sleep(500);
-                    var regularPrice = Parser.ParseDoube(FindElement(_productVariationRegularPriceBy).Text.Replace("$", ""));
-                    var salePrice = Parser.ParseDoube(FindElement(_productVariationSalePriceBy).Text.Replace("$", ""));
+
+                    var salePrice = Math.Round(Parser.ParseDoube(FindElement(_productVariationSalePriceBy).Text.Replace(".", "").Replace("₫", "")) * 0.0000394145,2) + 5;
+                    var regularPrice = salePrice + 30;
+                    
 
                     priceMapping.Add(style.Text.Trim().ToLower(), new Tuple<double, double>(regularPrice, salePrice));
                 }
@@ -176,7 +178,7 @@ namespace AutomationTestingSample.Testing.Pages
         {
             if(ProductConstants.VariationType == VariationType.Buttom)
             {
-                return _productButtomAttribute1.Select(x => x.Text.Trim()).ToList();
+                return _productButtomAttribute1.Select(x => x.Text.Trim()).Where(x => !x.Contains("Youth", StringComparison.OrdinalIgnoreCase)).ToList();
                 //return _productButtomAttribute1.Select(x => x.Text.Trim()).Where(x => !x.Equals("Cap", StringComparison.OrdinalIgnoreCase)).ToList();
             }
             else
@@ -206,9 +208,9 @@ namespace AutomationTestingSample.Testing.Pages
             var galleryImages = FindElements(_productImagesBy);
             if (galleryImages.Count > 0)
             {
-                return galleryImages.Select(x => x.GetAttribute("src")).ToList();
+                return galleryImages.Select(x => x.GetAttribute("data-zoom")).ToList();
             }
-            return [FindElement(_productMainImageBy).GetAttribute("src")];
+            return [FindElement(_productMainImageBy).GetAttribute("data-zoom")];
         }
 
         private void ExportExel(List<ProductMetadata> data)
@@ -521,14 +523,43 @@ namespace AutomationTestingSample.Testing.Pages
             public const string Variable = "variable";
             public const string variation = "variation";
 
-            public const string Description = @"HOCKEY JERSEY
-Button closure
-Moisture-wicking ; Full Button Down Closure ; Superior Comfortable Soft Feel.
-Breathable, durable and easy to care for, polyester is the ideal material for athletes everywhere.
-Embellished with contrast color braid trim and buttons for ease of wear.";
+            public const string Description = @"<strong>PRODUCT DETAILS:</strong>
+<ul>
+ 	<li style=""list-style-type: none;"">
+<ul>
+ 	<li style=""list-style-type: none;"">
+<ul>
+ 	<li>Our Ultra-Soft Poly has a sleek and soft feel that is both comfortable and durable! The lightweight fit has just the right amount of stretch that gives the look and feel of cotton without ever cracking, peeling, or flaking the print.</li>
+ 	<li>Wrinkle-Free fabric.</li>
+ 	<li>Won’t shrink or lose its shape.</li>
+ 	<li>Extremely Soft to the touch. Feels as soft as cotton- Guaranteed.</li>
+ 	<li>Vibrant full-color print, front &amp; back.</li>
+ 	<li>The design will never peel, flake or crack. Will not fade... EVER!</li>
+ 	<li>95% polyester and 5% spandex.</li>
+ 	<li>Machine wash: cold (max 30℃ or 86℉); Non-chlorine; Iron on low heat; Do not insolation.</li>
+ 	<li>Please note all of our products are<strong> US standard size</strong>. Please refer to our size chart to choose the right size for you:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<strong>SHIPPING TIME:</strong>
+<ul>
+ 	<li style=""list-style-type: none;"">
+<ul>
+ 	<li style=""list-style-type: none;"">
+<ul>
+ 	<li class=""li1""><strong>Standard Shipping:</strong> Standard shipping takes around <strong>2</strong><strong>-4 weeks</strong> to arrive at your door</li>
+ 	<li class=""li1""><strong>Insurance Shipping (Lost, Stolen, Defective, etc.):</strong> Standard shipping + Insurance.</li>
+ 	<li class=""li1""><strong>Fast Shipping:</strong> express shipping by DHL/FEDEX takes around <strong>12-16 days</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>";
 
-            public const string SKU = "ch-hershey-bears";
-            public const string Categories = "CH- Hershey Bears";
+            public const string SKU = "premier-league-football";
+            public const string Categories = "Premier League Football";
 
             public const string Attribute1Name = "Style";
             public const string Attribute2Name = "Size";

@@ -16,6 +16,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace AutomationTestingSample.Testing.Pages
 {
     //https://ciaohaha.com/shop/NFL-shoes-ver-40.1/
+    //https://ciaoseen.com/shop/NFL-Jacket-ver-4/
     public class ProductCalatlog2 : WebPageBase
     {
         private ReadOnlyCollection<IWebElement> _singleProductLinks => FindElements(By.XPath("//div[contains(@class,'image-none')]//a"));
@@ -126,7 +127,7 @@ namespace AutomationTestingSample.Testing.Pages
 
             foreach (var item in attribute1)
             {
-                priceMapping.Add(item.Trim().ToLower(), new Tuple<double, double>(129.99, 69.99));
+                priceMapping.Add(item.Trim().ToLower(), new Tuple<double, double>(129.99, 59.99));
             }
 
             return priceMapping;
@@ -154,7 +155,7 @@ namespace AutomationTestingSample.Testing.Pages
 
         private void ExportExel(List<ProductMetadata> data)
         {
-            var filePath = FileHelpers.ProjectPath + "woo_product_template.xlsx";
+            var filePath = FileHelpers.ProjectPath + "woo_product_template_one_variation.xlsx";
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             using ExcelPackage excel = new(new FileInfo(filePath));
@@ -400,14 +401,21 @@ namespace AutomationTestingSample.Testing.Pages
             public const string Variable = "variable";
             public const string variation = "variation";
 
-            public const string Description = @"Customize Your Name With  Arizona Cardinals Ver 40.1 Sport Shoes
+            public const string Description = @"Customize Your Name With New England Patriots Button Down Baseball Jacket version 4
 
-Hi there!! Are you looking at our  Arizona Cardinals shoes/sneakers. These sneakers are unique, made with love, and they are perfect accessories for your outfit. The Arizona Cardinals  Emblem on the shoes makes it a perfect item for any Arizona Cardinals Lovers.
+Hi there!! Are you looking at our New England Patriots Bomber Jacket. These bombers Jacket are unique, made with love, and they are perfect accessories for your outfit. The New England Patriots Emblem on the shoes makes it a perfect item for any New England Patriots Lovers.
 
-With the launch of the exclusive Made-to-Order service, you can make your sneakers/shoes unique by not only having your special Arizona Cardinals Emblem but also your Name printed on the shoes.";
+With the launch of the exclusive Made-to-Order service, you can make your Bomber Jacket unique by not only having your special New England Patriots Emblem but also your Name printed on the Bomber Jacket.
 
-            public const string SKU = "nfl-shoes-ver-40-1";
-            public const string Categories = "NFL shoes ver 40.1";
+MATERIALS:
+
+Each of our products is constructed from a premium polyester blend that is ultra-soft and incredibly comfortable.
+Features a specialty high-definition heat-dye application that ensures long-lasting color vibrancy even after machine washing.
+Fabric is durable and resistant to wrinkles, shrinking, and mildew.
+The product is custom printed, cut, and sewn just for you when you place your order ? there may be small differences in the design on the seams and /or arms due to the custom nature of the production process!";
+
+            public const string SKU = "nfl-jacket-ver-4";
+            public const string Categories = "NFL Jacket ver 4";
 
             public const string Attribute1Name = "Size";
             public const string Attribute2Name = "Size";
